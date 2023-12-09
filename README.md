@@ -47,7 +47,6 @@ pnpm install --filter=GT-Manual-plugin
 1. `GT-Manual-Plugin`自身的代码均开放，无需征得特殊同意<br>
 2. 本过码服务插件和后端都是开源,如果您是交易所得则是被骗,请及时退款并举报<br>
 3. 以上声明但仅代表`GT-Manual-Plugin`自身的范畴，请尊重Yunzai本体及其他插件作者的努力，勿将Yunzai及其他插件用于以盈利为目的的场景<br>
-4. miao-plugin的图片与其他素材均来自于网络，仅供交流学习使用，如有侵权请联系，会立即删除<br>
 
 # 资源
 
