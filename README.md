@@ -1,6 +1,6 @@
 # GT-Manual-Plugin
 ![](https://count.getloli.com/get/@wuliya990-GT-Manual?theme=rule34)<br>
-[![Gitee](https://img.shields.io/badge/Gitee-GT-Manual-Plugin插件-black?style=flat-square&logo=gitee)](https://gitee.com/wuliya336/GT-Manual-Plugin.git)[![Page Views Count](https://badges.toozhao.com/badges/01HH7G0FECQ0Y63W5MD236XFMM/green.svg)](https://badges.toozhao.com/stats/01HH7G0FECQ0Y63W5MD236XFMM )<br>
+[![Gitee](https://img.shields.io/badge/GT-Manual-Plugin?logo=gitee&label=gitee&link=https%3A%2F%2Fgitee.com%2Fwuliya336%2FGT-Manual-Plugin)](https://gitee.com/wuliya336/GT-Manual-Plugin.git)[![Page Views Count](https://badges.toozhao.com/badges/01HH7G0FECQ0Y63W5MD236XFMM/green.svg)](https://badges.toozhao.com/stats/01HH7G0FECQ0Y63W5MD236XFMM )<br>
 `GT-Manual-Plugin`是一个`Yunzai-Bot`的扩展插件，提供米游社手动签到,手动验证功能<br>
 
 ---
