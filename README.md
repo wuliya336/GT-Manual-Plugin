@@ -1,6 +1,8 @@
 # GT-Manual-Plugin
-![](https://count.getloli.com/get/@wuliya990-GT-Manual?theme=rule34)<br>
-[![Gitee](https://img.shields.io/badge/GT-Manual-Plugin?logo=gitee&label=gitee&link=https%3A%2F%2Fgitee.com%2Fwuliya336%2FGT-Manual-Plugin)](https://gitee.com/wuliya336/GT-Manual-Plugin.git)[![Page Views Count](https://badges.toozhao.com/badges/01HH7G0FECQ0Y63W5MD236XFMM/green.svg)](https://badges.toozhao.com/stats/01HH7G0FECQ0Y63W5MD236XFMM )<br>
+![动态访问量](https://count.getloli.com/get/@wuliya990-GT-Manual?theme=rule34)<br>
+[![Gitee](https://img.shields.io/badge/GT--Manual--Plugin-1?style=for-the-badge&logo=gitee&color=rgb(218%2C16%2C30)
+)](https://gitee.com/wuliya336/GT-Manual-Plugin)![Github](https://img.shields.io/badge/GT--Manual--Plugin-1?style=for-the-badge&logo=github&color=rgb(0%2C0%2C0))(https://github.com/wuliya336/GT-Manual-Plugin)![GitHub Version](https://img.shields.io/github/package-json/v/shiwuliya/GT-Manual-Plugin/main?logo=github&label=GT-Manual-Plugin)(https://github.com/wuliya336/GT-Manual-Plugin)![Gitee Version](https://img.shields.io/github/package-json/v/shiwuliya/GT-Manual-Plugin/main?logo=gitee&label=GT-Manual-Plugin)<br>
+[![访问量](https://profile-counter.glitch.me/GT-Manual-Plugin/count.svg)](https://github.com/wuliya336/GT-Manual-Plugin)<br>
 `GT-Manual-Plugin`是一个`Yunzai-Bot`的扩展插件，提供米游社手动签到,手动验证功能<br>
 
 ---
@@ -15,12 +17,14 @@
 
 // 使用gitee
 ```
-git clone --depth=1 https://gitee.com/wuliya336/GT-Manual-Plugin.git ./plugins/miao-plugin/
+git clone --depth=1 https://gitee.com/wuliya336/GT-Manual-Plugin.git ./plugins/GT-Manual-Plugin/
 pnpm install --filter=GT-Manual-plugin
 ```
 // 使用github
+
+
 ```
-git clone --depth=1 https://github.com/wuliya336/GT-Manual-Plugin.git ./plugins/miao-plugin/<br>
+git clone --depth=1 https://github.com/wuliya336/GT-Manual-Plugin.git ./plugins/GT-Manual-Plugin/
 pnpm install --filter=GT-Manual-plugin
 ```
 
