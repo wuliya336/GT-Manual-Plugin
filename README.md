@@ -1,39 +1,55 @@
 # GT-Manual-Plugin
+![](https://count.getloli.com/get/@wuliya990-GT-Manual?theme=rule34)<br>
+[![Gitee](https://img.shields.io/badge/Gitee-清凉插件-black?style=flat-square&logo=gitee)](https://gitee.com/xwy231321/ql-plugin)[![Page Views Count](https://badges.toozhao.com/badges/01HH7G0FECQ0Y63W5MD236XFMM/green.svg)](https://badges.toozhao.com/stats/01HH7G0FECQ0Y63W5MD236XFMM )
+`GT-Manual-Plugin`是一个`Yunzai-Bot`的扩展插件，提供米游社手动签到,手动验证功能<br>
 
-#### 介绍
-{**以下是 Gitee 平台说明，您可以替换此简介**
-Gitee 是 OSCHINA 推出的基于 Git 的代码托管平台（同时支持 SVN）。专为开发者提供稳定、高效、安全的云端软件开发协作平台
-无论是个人、团队、或是企业，都能够用 Gitee 实现代码托管、项目管理、协作开发。企业项目请看 [https://gitee.com/enterprises](https://gitee.com/enterprises)}
+---
 
-#### 软件架构
-软件架构说明
+## 安装与更新
 
+### 使用Git安装（推荐）
 
-#### 安装教程
+请将 `GT-Manual-Plugin` 放置在 Yunzai-Bot 的 plugins 目录下，重启 Yunzai-Bot 后即可使用<br>
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+请使用 git 进行安装，以方便后续升级。在 Yunzai-Bot 根目录夹打开终端，运行下述指令之一<br>
 
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+// 使用gitee
+```
+git clone --depth=1 https://gitee.com/wuliya336/GT-Manual-Plugin.git ./plugins/miao-plugin/
+pnpm install --filter=GT-Manual-plugin
+```
+// 使用github
+```
+git clone --depth=1 https://github.com/wuliya336/GT-Manual-Plugin.git ./plugins/miao-plugin/<br>
+pnpm install --filter=GT-Manual-plugin
+```
 
 
-#### 特技
+### 手工下载安装（不推荐）
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+手工下载安装包，解压后将`GT-Manual-Plugin-master`更名为`GT-Manual-Plugin`，然后放置在Yunzai的plugins目录内<br>
+
+虽然此方式能够使用，不利于后续升级，故不推荐使用<br>
+
+---
+
+# 说明
+- 不支持[Yunzai-Bot](https://gitee.com/yoimiya-kokomi/Yunzai-Bot)<br>
+- 支持[Miao-Yunzai](https://gitee.com/yoimiya-kokomi/Miao-Yunzai)<br>
+- 支持[TRSS-Yunzai](https://gitee.com/TimeRainStarSky/Yunzai)<br>
+
+如不可用，请确保本体为最新版<br>
+
+# 免责声明
+1. `GT-Manual-Plugin`自身的代码均开放，无需征得特殊同意<br>
+2. 本过码服务插件和后端都是开源,如果您是交易所得则是被骗,请及时退款并举报<br>
+3. 以上声明但仅代表`GT-Manual-Plugin`自身的范畴，请尊重Yunzai本体及其他插件作者的努力，勿将Yunzai及其他插件用于以盈利为目的的场景<br>
+4. miao-plugin的图片与其他素材均来自于网络，仅供交流学习使用，如有侵权请联系，会立即删除<br>
+
+# 资源
+
+* [Miao-Yunzai](https://github.com/yoimiya-kokomi/Miao-Yunzai) : 喵版Yunzai [Gitee](https://gitee.com/yoimiya-kokomi/Miao-Yunzai)
+  / [Github](https://github.com/yoimiya-kokomi/Miao-Yunzai)
+* [Yunzai-V3](https://github.com/yoimiya-kokomi/Yunzai-Bot) ：Yunzai V3 - 喵喵维护版（使用 icqq）
+* [Yunzai-V3](https://gitee.com/Le-niao/Yunzai-Bot) ：Yunzai V3 - 乐神原版（使用 oicq）
+* [米游社接口服务](https://gitee.com/QQ1146638442/GT-Manual) ：米游社手动验证接口服务

@@ -1,0 +1,13 @@
+{
+  "name": "GT-Manual-plugin",
+  "version": "1.0.0",
+  "author": "wuliya",
+  "description": "手动过码插件",
+  "type": "module",
+  "dependencies": {
+    "chokidar": "^3.5.3",
+    "lodash": "^4.17.21",
+    "ws": "^8.14.2",
+    "yaml": "^2.3.4"
+  }
+}
