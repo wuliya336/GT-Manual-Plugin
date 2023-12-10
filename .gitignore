@@ -1,3 +1,7 @@
+# modules file
+node_modules/*
+pnpm-lock.yaml
+
 # Build and Release Folders
 bin-debug/
 bin-release/

@@ -1,7 +1,8 @@
-verify: 1
-verifyAddr: http://127.0.0.1:3000/GTest/register?key=114514
-sign: 1
-signAddr: ws://127.0.0.1:3000/mysSign?key=114514
-blackList:
-  - 10001
-  - 10002
+gt:
+  verify: 1
+  verifyAddr: http://127.0.0.1:3000/GTest/register?key=114514
+  sign: 1
+  signAddr: ws://127.0.0.1:3000/mysSign?key=114514
+  blackList:
+    - 10001
+    - 10002

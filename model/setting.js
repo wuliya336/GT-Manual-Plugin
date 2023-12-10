@@ -1,140 +1,106 @@
+// 导入 YAML, chokidar, fs 和 path 模块
 import YAML from 'yaml'
 import chokidar from 'chokidar'
 import fs from 'node:fs'
 import { _path, pluginResources, pluginRoot } from "./path.js";
 
+// 定义 Setting 类
 class Setting {
+  // 构造函数，初始化一些属性
   constructor () {
-    /** 默认设置 */
-    this.defPath = `${_path}/plugins/GT-Manual-Plugin/def/`
-    this.def = {}
-
-    /** 用户设置 */
-    this.configPath = `${_path}/plugins/GT-Manual-Plugin/config/`
+    /** GT 配置文件 */
+    this.configPath = `${_path}/plugins/GT-Manual-Plugin/config/gt.yaml`
     this.config = {}
 
-
     /** 监听文件 */
-    this.watcher = { config: {}, def: {} }
+    this.watcher = null
   }
 
   // 配置对象化 用于锅巴插件界面填充
   merge () {
-    let sets = {}
-    let appsConfig = fs.readdirSync(this.defPath).filter(file => file.endsWith(".yaml"));
-    for (let appConfig of appsConfig) {
-      // 依次将每个文本填入键
-      let filename = appConfig.replace(/.yaml/g, '').trim()
-      sets[filename] = this.getConfig(filename)
-    }
-    return sets
+    // 直接返回配置对象
+    return this.getConfig()
   }
 
   // 配置对象分析 用于锅巴插件界面设置
   analysis(config) {
-    for (let key of Object.keys(config)){
-      this.setConfig(key, config[key])
-    }
+    // 直接设置配置对象
+    this.setConfig(config)
   }
 
-  // 获取对应模块数据文件
-  getData (path, filename) {
-    path = `${this.dataPath}${path}/`
+
+  // 获取 GT 配置
+  getConfig () {
+    // 返回 YAML 文件的解析结果
+    return this.getYaml()
+  }
+
+  // 设置 GT 配置
+  setConfig (Object) {
+    // 将对象写入 YAML 文件
+    return this.setYaml(Object)
+  }
+
+  // 将对象写入 YAML 文件
+  setYaml (Object){
+    // 获取文件路径
+    let file = this.configPath
     try {
-      if (!fs.existsSync(`${path}${filename}.yaml`)){ return false}
-      return YAML.parse(fs.readFileSync(`${path}${filename}.yaml`, 'utf8'))
-    } catch (error) {
-      logger.error(`[${filename}] 读取失败 ${error}`)
-      return false
-    }
-  }
-
-  // 写入对应模块数据文件
-  setData (path, filename, data) {
-    path = `${this.dataPath}${path}/`
-    try {
-      if (!fs.existsSync(path)){
-        // 递归创建目录
-        fs.mkdirSync(path, { recursive: true });
-      }
-      fs.writeFileSync(`${path}${filename}.yaml`, YAML.stringify(data),'utf8')
-    } catch (error) {
-      logger.error(`[${filename}] 写入失败 ${error}`)
-      return false
-    }
-  }
-
-  // 获取对应模块默认配置
-  getdefSet (app) {
-    return this.getYaml(app, 'def')
-  }
-
-  // 获取对应模块用户配置
-  getConfig (app) {
-    return { ...this.getdefSet(app), ...this.getYaml(app, 'config') }
-  }
-
-  // 设置对应模块用户配置
-  setConfig (app, Object) {
-    return this.setYaml(app, 'config', { ...this.getdefSet(app), ...Object})
-  }
-
-  // 将对象写入YAML文件
-  setYaml (app, type, Object){
-    let file = this.getFilePath(app, type)
-    try {
+      // 将对象转换为 YAML 格式并写入文件
       fs.writeFileSync(file, YAML.stringify(Object),'utf8')
     } catch (error) {
-      logger.error(`[${app}] 写入失败 ${error}`)
+      // 如果出现错误，打印日志并返回 false
+      logger.error(`[GT-Manual-Plugin] 写入失败 ${error}`)
       return false
     }
   }
 
-  // 读取YAML文件 返回对象
-  getYaml (app, type) {
-    let file = this.getFilePath(app, type)
-    if (this[type][app]) return this[type][app]
+  // 读取 YAML 文件 返回对象
+  getYaml () {
+    // 获取文件路径
+    let file = this.configPath
+    // 如果已经有缓存的对象，直接返回
+    if (this.config) return this.config
 
     try {
-      this[type][app] = YAML.parse(fs.readFileSync(file, 'utf8'))
+      // 否则，读取文件并解析为对象
+      this.config = YAML.parse(fs.readFileSync(file, 'utf8'))
     } catch (error) {
-      logger.error(`[${app}] 格式错误 ${error}`)
+      // 如果出现错误，打印日志并返回 false
+      logger.error(`[GT-Manual-Plugin] 格式错误 ${error}`)
       return false
     }
-    this.watch(file, app, type)
-    return this[type][app]
+    // 监视文件变化
+    this.watch(file)
+    // 返回对象
+    return this.config
   }
 
-  // 获取YAML文件目录
-  getFilePath (app, type) {
-    if (type === 'def') return `${this.defPath}${app}.yaml`
-    else {
-      try {
-        if (!fs.existsSync(`${this.configPath}${app}.yaml`)) {
-          fs.copyFileSync(`${this.defPath}${app}.yaml`, `${this.configPath}${app}.yaml`)
-        }
-      } catch (error) {
-        logger.error(`GT-Manual-Plugin插件缺失默认文件[${app}]${error}`)
-      }
-      return `${this.configPath}${app}.yaml`
-    }
+  //重新加载插件
+  reloadPlugin() {
+    location.reload();
   }
 
+  //监视文件变化的函数
+  watch(file) {
+    //如果已经有一个监视器，就不需要再创建一个
+    if (this.watcher) return;
 
-  // 监听配置文件
-  watch (file, app, type = 'def') {
-    if (this.watcher[type][app]) return
-
-    const watcher = chokidar.watch(file)
+    //创建一个监视器，使用 chokidar 库
+    const watcher = chokidar.watch(file);
+    //当文件发生变化时，执行一些操作
     watcher.on('change', path => {
-      delete this[type][app]
-      logger.mark(`[GT-Manual-Plugin插件][修改配置文件][${type}][${app}]`)
-      if (this[`change_${app}`]) {
-        this[`change_${app}`]()
-      }
-    })
-    this.watcher[type][app] = watcher
+      //删除当前的配置对象
+      delete this.config;
+      //打印一些日志信息
+      logger.mark(`[自动化插件][修改配置文件][GT]`);
+      //重新加载插件
+      reloadPlugin();
+    });
+    //将监视器保存到 this.watcher 属性中
+    this.watcher = watcher;
   }
 }
 
+// 导出 Setting 类的实例
 export default new Setting()
