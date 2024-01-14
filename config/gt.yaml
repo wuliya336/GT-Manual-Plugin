@@ -1,26 +1,7 @@
-<<<<<<< HEAD
-gt:
-  verify: 1
-  verifyAddr: http://127.0.0.1:3000/GTest/register?key=114514
-  sign: 1
-  signAddr: ws://127.0.0.1:3000/mysSign?key=114514
-  blackList:
-    - 10001
-    - 10002
-=======
-# 1034手动验证 0-关闭 1-开启 2-仅原神 3-仅星铁
 verify: 1
-# 手动验证API
 verifyAddr: 'http://127.0.0.1:3000/GTest/register?key=114514'
-
-# mys手动签到 0-关闭 1-开启
 sign: 1
-# 手动签到API, 仅发送uid、gt验证码信息, 不发送qq、cookie等敏感信息
 signAddr: 'ws://127.0.0.1:3000/mysSign?key=114514'
-
-
-# 黑名单QQ，不使用手动过码，有其他过码插件会next下一个过码服务
 blackList:
   - 10001
   - 10002
->>>>>>> parent of c33754a (🐞 fix(guoba.support.js): 修改提示信息)
