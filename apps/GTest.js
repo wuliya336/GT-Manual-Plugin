@@ -5,7 +5,7 @@ import Tools from '../model/index.js'
 export class bbsVerification extends plugin {
   constructor (e) {
     super({
-      name: 'GT-Manual',
+      name: 'GT-Manual-Plugin',
       priority: -(9 ** 9),
       namespace: 'GT-Manual',
       handler: [

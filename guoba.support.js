@@ -66,11 +66,7 @@ export function supportGuoba() {
           field: 'gt.verifyAddr',
           label: '手动验证API',
           helpMessage: '用于注册和验证的API地址',
-<<<<<<< HEAD
-          bottomHelpMessage: '请输入手动验证API地址,https或http(需重启生效)',
-=======
           bottomHelpMessage: '请输入手动验证API地址',
->>>>>>> parent of c33754a (🐞 fix(guoba.support.js): 修改提示信息)
           component: 'Input',
           required: true,
           componentProps: {
@@ -81,11 +77,7 @@ export function supportGuoba() {
           field: 'gt.signAddr',
           label: '手动签到API',
           helpMessage: '用于签到的API地址,仅发送uid、gt验证码信息,不发送qq、cookie等敏感信息',
-<<<<<<< HEAD
-          bottomHelpMessage: '请输入手动签到API地址,wss或ws(需重启生效)',
-=======
           bottomHelpMessage: '请输入手动签到API地址',
->>>>>>> parent of c33754a (🐞 fix(guoba.support.js): 修改提示信息)
           component: 'Input',
           required: true,
           componentProps: {
@@ -96,13 +88,8 @@ export function supportGuoba() {
           field: 'gt.blackList',
           label: '黑名单QQ',
           helpMessage: '不使用手动过码,有其他过码插件会next下一个过码服务',
-<<<<<<< HEAD
-          bottomHelpMessage: '请输入黑名单QQ号(需重启生效)',
-          component: 'GTags',
-=======
           bottomHelpMessage: '请输入黑名单QQ号,用逗号分隔',
           component: 'Input',
->>>>>>> parent of c33754a (🐞 fix(guoba.support.js): 修改提示信息)
           componentProps: {
             placeholder: '请输入黑名单QQ号',
             allowAdd: true,
