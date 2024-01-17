@@ -7,10 +7,10 @@ const _cfgPath = `${_path}/plugins/GT-Manual-Plugin/components/`
 let cfg = {}
 
 let configPath = `${_path}/plugins/GT-Manual-Plugin/config/`
-let defSetPath = './plugins/GT-Manual-Plugin/defSet/'
+let defPath = './plugins/GT-Manual-Plugin/def/'
 
 const getConfig = function (app, name) {
-    let defp = `${defSetPath}${app}/${name}.yaml`
+    let defp = `${defPath}${app}/${name}.yaml`
     if (!fs.existsSync(`${configPath}${app}.${name}.yaml`)) {
         fs.copyFileSync(defp, `${configPath}${app}.${name}.yaml`)
     }

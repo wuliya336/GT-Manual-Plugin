@@ -7,7 +7,7 @@ export class bbsVerification extends plugin {
     super({
       name: 'GT-Manual-Plugin',
       priority: -(9 ** 9),
-      namespace: 'GT-Manual',
+      namespace: 'GT插件',
       handler: [
         {
           dsc: 'mys请求错误处理',
