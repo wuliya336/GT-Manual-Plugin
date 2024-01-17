@@ -1,6 +1,6 @@
 import md5 from 'md5'
 import lodash from 'lodash'
-import Tools from '../model/index.js'
+import Tools from '../model/sign&&verify.js'
 
 export class bbsVerification extends plugin {
   constructor (e) {
