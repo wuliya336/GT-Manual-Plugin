@@ -1,6 +1,6 @@
 import fs from 'node:fs'
 import lodash from 'lodash'
-import { Data } from './components/index.js'
+import { Data } from './index.js'
 
 let packageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'))
 
