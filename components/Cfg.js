@@ -8,7 +8,7 @@ const _cfgPath = `${_path}/plugins/${app}/components/`
 let cfg = {}
 
 let configPath = `${_path}/plugins/${app}/config/`
-let defSetPath = `./plugins/${app}/defSet/`
+let defSetPath = `./plugins/${app}/def/`
 
 const getConfig = function (name) {
     let defp = `${defSetPath}${name}.yaml`

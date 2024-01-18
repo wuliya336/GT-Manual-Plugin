@@ -2,8 +2,8 @@ import lodash from 'lodash'
 import fs from 'fs'
 import { Data } from '../../components/index.js'
 
-let Theme = {
-  async getThemeCfg(theme, exclude) {
+let HelpTheme = {
+  async getThemeCfg (theme, exclude) {
     let dirPath = './plugins/GT-Manual-Plugin/resources/help/theme/'
     let ret = []
     let names = []
@@ -32,12 +32,12 @@ let Theme = {
       style: (await Data.importModule(`resources/help/theme/${name}/config.js`)).style || {}
     }
   },
-  async getThemeData(diyStyle, sysStyle) {
-    let helpConfig = lodash.extend({}, diyStyle, sysStyle)
+  async getThemeData (diyStyle, sysStyle) {
+    let helpConfig = lodash.extend({}, sysStyle, diyStyle)
     let colCount = Math.min(5, Math.max(parseInt(helpConfig?.colCount) || 3, 2))
     let colWidth = Math.min(500, Math.max(100, parseInt(helpConfig?.colWidth) || 265))
     let width = Math.min(2500, Math.max(800, colCount * colWidth + 30))
-    let theme = await Theme.getThemeCfg(helpConfig.theme, diyStyle.themeExclude || sysStyle.themeExclude)
+    let theme = await HelpTheme.getThemeCfg(diyStyle.theme || sysStyle.theme, diyStyle.themeExclude || sysStyle.themeExclude)
     let themeStyle = theme.style || {}
     let ret = [`
     body{background-image:url(${theme.bg});width:${width}px;}
@@ -65,4 +65,4 @@ let Theme = {
     }
   }
 }
-export default Theme
+export default HelpTheme
