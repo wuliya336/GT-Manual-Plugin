@@ -1,68 +1,13 @@
-import fs from 'fs'
-import lodash from 'lodash'
-import YAML from 'yaml'
+import Cfg from './Cfg.js'
+import render from './common-lib/render.js'
 
-const _path = process.cwd()
-const _cfgPath = `${_path}/plugins/GT-Manual-Plugin/components/`
-let cfg = {}
-
-let configPath = `${_path}/plugins/GT-Manual-Plugin/config/`
-let defPath = './plugins/GT-Manual-Plugin/def/'
-
-const getConfig = function (app, name) {
-    let defp = `${defPath}${app}/${name}.yaml`
-    if (!fs.existsSync(`${configPath}${app}.${name}.yaml`)) {
-        fs.copyFileSync(defp, `${configPath}${app}.${name}.yaml`)
-    }
-    let conf = `${configPath}${app}.${name}.yaml`
-
-    try {
-        return YAML.parse(fs.readFileSync(conf, 'utf8'))
-    } catch (error) {
-        logger.error(`[${app}][${name}] 格式错误 ${error}`)
-        return false
-    }
+function sleep (ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
-try {
-    if (fs.existsSync(_cfgPath + 'cfg.json')) {
-        cfg = JSON.parse(fs.readFileSync(_cfgPath + 'cfg.json', 'utf8')) || {}
-        cfg.gachas = getConfig('gacha', 'gacha')
-    }
-} catch (e) {
-    // do nth
+export default {
+  render,
+  cfg: Cfg.get,
+  isDisable: Cfg.isDisable,
+  sleep
 }
-
-let Cfg = {
-    get(rote, def = '') {
-        return lodash.get(cfg, rote, def)
-    },
-    set(rote, val) {
-        lodash.set(cfg, rote, val)
-        let gachas = cfg.gachas
-        delete cfg.gachas
-        fs.writeFileSync(_cfgPath + 'cfg.json', JSON.stringify(cfg, null, '\t'))
-        cfg.gachas = gachas
-    },
-    del(rote) {
-        lodash.set(cfg, rote, undefined)
-        fs.writeFileSync(_cfgPath + 'cfg.json', JSON.stringify(cfg, null, '\t'))
-    },
-    scale(pct = 1) {
-        let scale = Cfg.get('sys.scale', 100)
-        scale = Math.min(2, Math.max(0.5, scale / 100))
-        pct = pct * scale
-        return `style=transform:scale(${pct})`
-    },
-    isDisable(e, rote) {
-        if (Cfg.get(rote, true)) {
-            return false
-        }
-        return !/^#*GT/.test(e.msg || '')
-    },
-    merged() {
-        return lodash.merge({}, cfg)
-    }
-}
-
-export default Cfg

@@ -75,13 +75,13 @@ const isV3 = yunzaiVersion[0] === '3'
 
 let Version = {
   isV3,
-  get version () {
+  get version() {
     return currentVersion
   },
-  get yunzai () {
+  get yunzai() {
     return yunzaiVersion
   },
-  get changelogs () {
+  get changelogs() {
     return changelogs
   }
 }

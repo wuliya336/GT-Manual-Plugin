@@ -1,26 +1,25 @@
 import lodash from 'lodash'
 import fs from 'fs'
 import { Cfg, Version, Common, Data } from '../components/index.js'
-import Theme from './help/theme.js'
+import HelpTheme from './help/theme.js'
 
 const _path = process.cwd()
 const helpPath = `${_path}/plugins/GT-Manual-Plugin/resources/help`
 
-export class Help extends plugin {
+export class help extends plugin {
     constructor() {
         super({
-            name: 'GT-Manual-Plugin',
-            namespace: 'GT插件',
+            name: '[GT插件]帮助',
             dsc: 'GT帮助',
             event: 'message',
-            priority: 1146,
+            priority: 100,
             rule: [
                 {
-                    reg: "^#?GT?(命令|帮助|菜单|help|说明|功能|指令|使用说明)$",
+                    reg: "^#?(GT|gt)(命令|帮助|菜单|help|说明|功能|指令|使用说明)$",
                     fnc: 'help'
                 },
                 {
-                    reg: "^#?GT版本$",
+                    reg: "^#?(GT|gt)(版本|版本信息|version|versioninfo)$",
                     fnc: 'versionInfo'
                 }
             ]
@@ -28,20 +27,9 @@ export class Help extends plugin {
     }
 
     async help(e) {
-        if ((!/GT/.test(e.msg)) && !Cfg.get('sys.help', false)) {
-            return false
-        }
 
         let custom = {}
         let help = {}
-        if (fs.existsSync(`${helpPath}/help-cfg.js`)) {
-            console.log('GT-Manual-Plugin: 检测到存在help-cfg.js配置\n建议将help-cfg.js移为config/help.js或重新复制config/help_default.js进行配置~')
-            help = await import(`file://${helpPath}/help-cfg.js?version=${new Date().getTime()}`)
-        } else if (fs.existsSync(`${helpPath}/help-list.js`)) {
-            console.log('GT-Manual-Plugin: 检测到存在help-list.js配置，建议将help-list.js移为config/help.js或重新复制config/help_default.js进行配置~')
-            help = await import(`file://${helpPath}/help-list.js?version=${new Date().getTime()}`)
-        }
-
         let { diyCfg, sysCfg } = await Data.importCfg('help')
 
         // 兼容一下旧字段
@@ -77,7 +65,7 @@ export class Help extends plugin {
 
             helpGroup.push(group)
         })
-        let themeData = await Theme.getThemeData(diyCfg.helpCfg || {}, sysCfg.helpCfg || {})
+        let themeData = await HelpTheme.getThemeData(diyCfg.helpCfg || {}, sysCfg.helpCfg || {})
         return await Common.render('help/index', {
             helpCfg: helpConfig,
             helpGroup,
@@ -90,7 +78,7 @@ export class Help extends plugin {
         return await Common.render('help/version-info', {
             currentVersion: Version.version,
             changelogs: Version.changelogs,
-            elem: 'dendro'
+            elem: 'anemo'
         }, { e, scale: 1.2 })
     }
 }

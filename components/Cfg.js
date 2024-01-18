@@ -2,24 +2,25 @@ import fs from 'fs'
 import lodash from 'lodash'
 import YAML from 'yaml'
 
+let app = "GT-Manual-Plugin"
 const _path = process.cwd()
-const _cfgPath = `${_path}/plugins/GT-Manual-Plugin/components/`
+const _cfgPath = `${_path}/plugins/${app}/components/`
 let cfg = {}
 
-let configPath = `${_path}/plugins/GT-Manual-Plugin/config/`
-let defPath = './plugins/GT-Manual-Plugin/def/'
+let configPath = `${_path}/plugins/${app}/config/`
+let defSetPath = `./plugins/${app}/defSet/`
 
-const getConfig = function (app, name) {
-    let defp = `${defPath}${app}/${name}.yaml`
-    if (!fs.existsSync(`${configPath}${app}.${name}.yaml`)) {
-        fs.copyFileSync(defp, `${configPath}${app}.${name}.yaml`)
+const getConfig = function (name) {
+    let defp = `${defSetPath}${name}.yaml`
+    if (!fs.existsSync(`${configPath}${name}.yaml`)) {
+        fs.copyFileSync(defp, `${configPath}${name}.yaml`)
     }
-    let conf = `${configPath}${app}.${name}.yaml`
+    let conf = `${configPath}${name}.yaml`
 
     try {
         return YAML.parse(fs.readFileSync(conf, 'utf8'))
     } catch (error) {
-        logger.error(`[${app}][${name}] 格式错误 ${error}`)
+        logger.error(`[${name}] 格式错误 ${error}`)
         return false
     }
 }
@@ -27,7 +28,7 @@ const getConfig = function (app, name) {
 try {
     if (fs.existsSync(_cfgPath + 'cfg.json')) {
         cfg = JSON.parse(fs.readFileSync(_cfgPath + 'cfg.json', 'utf8')) || {}
-        cfg.gachas = getConfig('gacha', 'gacha')
+        cfg.expands = getConfig('TianRu', 'expand')
     }
 } catch (e) {
     // do nth
@@ -39,10 +40,10 @@ let Cfg = {
     },
     set(rote, val) {
         lodash.set(cfg, rote, val)
-        let gachas = cfg.gachas
-        delete cfg.gachas
+        let expands = cfg.expands
+        delete cfg.expands
         fs.writeFileSync(_cfgPath + 'cfg.json', JSON.stringify(cfg, null, '\t'))
-        cfg.gachas = gachas
+        cfg.expands = expands
     },
     del(rote) {
         lodash.set(cfg, rote, undefined)
@@ -58,7 +59,7 @@ let Cfg = {
         if (Cfg.get(rote, true)) {
             return false
         }
-        return !/^#*GT/.test(e.msg || '')
+        return !/^#*拓展/.test(e.msg || '')
     },
     merged() {
         return lodash.merge({}, cfg)
