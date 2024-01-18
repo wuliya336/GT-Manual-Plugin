@@ -12,7 +12,7 @@ export const helpCfg = {
     title: 'GT帮助',
   
     // 帮助副标题
-    subTitle: 'Yunzai-Bot & GT-Manual-Plugin',
+    subTitle: '米游社手动验证/签到',
   
     // 帮助表格列数，可选：2-5，默认3
     // 注意：设置列数过多可能导致阅读困难，请参考实际效果进行设置
@@ -62,5 +62,5 @@ export const helpCfg = {
       icon: 95,
       title: '#GT重连ws',
       desc: '重新连接ws地址'
-}]
+  }]
 }]

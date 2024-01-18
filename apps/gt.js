@@ -23,13 +23,13 @@ export class bbsVerification extends plugin {
         },
         {
           dsc: '重新连接WebSocket',
-          reg: '^#GT重连ws$',
+          reg: '^#(GT|gt)重连ws$',
           fnc: 'reconnection',
           permission: 'master'
         },
         {
           dsc: '刷新米游社验证',
-          reg: '^#米游社验证$',
+          reg: '^#(GT|gt)刷新验证$',
           fnc: 'bbsVerify'
         }
       ]

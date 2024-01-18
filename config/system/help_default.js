@@ -1,29 +1,47 @@
 /*
-* 此配置文件为系统使用，请勿修改，否则可能无法正常使用
+* 请注意，系统不会读取help_default.js ！！！！
+* 【请勿直接修改此文件，且可能导致后续冲突】
 *
-* 如需自定义配置请复制修改上一级help_default.js
+* 如需自定义可将文件【复制】一份，并重命名为 help.js
 *
 * */
+
 export const helpCfg = {
-    title: 'GT帮助',
-    subTitle: 'Yunzai-Bot & GT-Manual-Plugin',
-    colCount: 3,
-    colWidth: 265,
-    theme: 'all',
-    themeExclude: ['default'],
-    bgBlur: true
+  title: 'GT帮助',
+  subTitle: '米游社手动验证/签到',
+  columnCount: 3,
+  colWidth: 265,
+  theme: 'all',
+  themeExclude: ['default'],
+  style: {
+    fontColor: '#d3bc8e',
+    descColor: '#eee',
+    contBgColor: 'rgba(6, 21, 31, .5)',
+    contBgBlur: 3,
+    headerBgColor: 'rgba(6, 21, 31, .4)',
+    rowBgColor1: 'rgba(6, 21, 31, .2)',
+    rowBgColor2: 'rgba(6, 21, 31, .35)'
   }
-  
-  export const helpList = [{
-    group: 'GT功能',
+}
+
+export const helpList = [{
+    group: '功能',
     list: [{
       icon: 33,
       title: '#原神签到',
-      desc: '调用逍遥插件的签到功能，并返回签到地址'
+      desc: '调用逍遥插件的签到功能，并返回原神签到地址'
+    }, {      
+      icon: 33,
+      title: '#星铁签到',
+      desc: '调用逍遥插件的签到功能，并返回原星铁签到地址'
     }, {
       icon: 31,
       title: '体力过验证码',
       desc: '遇到验证码返回验证码地址'
+    }, {      
+      icon: 33,
+      title: '#GT刷新验证',
+      desc: '刷新米游社验证'
     }, {
     }]
   }, {
@@ -37,5 +55,7 @@ export const helpCfg = {
       icon: 95,
       title: '#GT重连ws',
       desc: '重新连接ws地址'
+  }]
 }]
-}]
+
+export const isSys = true
