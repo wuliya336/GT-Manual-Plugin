@@ -20,7 +20,7 @@ export default async function (path, params, cfg) {
                 elemLayout: layoutPath + 'elem.html',
                 sys: {
                     scale: Cfg.scale(cfg.scale || 1),
-                    copyright: `Created By ${Version.name}<span class="version">${Version.yunzai}</span> & GT-Manual-Plugin<span class="version">${Version.version}</span>`
+                    copyright: `Created By Yunzai-Bot<span class="version">${Version.yunzai}</span> & GT-Manual-Plugin<span class="version">${Version.version}</span>`
                 }
             }
         }
