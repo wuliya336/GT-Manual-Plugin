@@ -15,9 +15,9 @@ let uping = false;
 export class update extends plugin {
   constructor() {
     super({
-      name: "[GT插件]更新",
+      name: "GT插件",
       event: "message",
-      priority: 1145,
+      priority: 336,
       rule: [
         {
           reg: "^#*GT(插件)?(强制)?更新$",

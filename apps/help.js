@@ -9,7 +9,7 @@ const helpPath = `${_path}/plugins/GT-Manual-Plugin/resources/help`
 export class help extends plugin {
     constructor() {
         super({
-            name: '[GT插件]帮助',
+            name: 'GT插件',
             dsc: 'GT帮助',
             event: 'message',
             priority: 100,

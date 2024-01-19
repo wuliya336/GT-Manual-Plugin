@@ -24,36 +24,36 @@ export const helpCfg = {
 }
 
 export const helpList = [{
-    group: '功能',
-    list: [{
-      icon: 33,
-      title: '#原神签到',
-      desc: '调用逍遥插件的签到功能，并返回原神签到地址'
-    }, {      
-      icon: 33,
-      title: '#星铁签到',
-      desc: '调用逍遥插件的签到功能，并返回原星铁签到地址'
-    }, {
-      icon: 31,
-      title: '体力过验证码',
-      desc: '遇到验证码返回验证码地址'
-    }, {      
-      icon: 33,
-      title: '#GT刷新验证',
-      desc: '刷新米游社验证'
-    }, {
-    }]
+  group: '功能',
+  list: [{
+    icon: 71,
+    title: '#原神签到',
+    desc: '调用逍遥插件的签到功能，并返回原神签到地址'
   }, {
-    group: '管理命令，仅管理员可用',
-    auth: 'master',
-    list: [{
-      icon: 95,
-      title: '#GT(强制)更新',
-      desc: '更新GT插件'
-    }, {
-      icon: 95,
-      title: '#GT重连ws',
-      desc: '重新连接ws地址'
+    icon: 71,
+    title: '#星铁签到',
+    desc: '调用逍遥插件的签到功能，并返回原星铁签到地址'
+  }, {
+    icon: 71,
+    title: '体力过验证码',
+    desc: '遇到验证码返回验证码地址'
+  }, {
+    icon: 71,
+    title: '#GT刷新验证',
+    desc: '刷新米游社验证'
+  }, {
+  }]
+}, {
+  group: '管理命令，仅管理员可用',
+  auth: 'master',
+  list: [{
+    icon: 85,
+    title: '#GT(强制)更新',
+    desc: '更新GT插件'
+  }, {
+    icon: 85,
+    title: '#GT重连ws',
+    desc: '重新连接ws地址'
   }]
 }]
 
