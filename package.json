@@ -1,6 +1,6 @@
 {
   "name": "gt-manual-plugin",
-  "version": "1.3",
+  "version": "1.4",
   "author": "wuliya",
   "description": "米游社手动验证/签到插件",
   "type": "module",
@@ -8,6 +8,7 @@
     "chokidar": "^3.5.3",
     "lodash": "^4.17.21",
     "ws": "^8.15.0",
-    "yaml": "^2.3.4"
+    "yaml": "^2.3.4",
+    "js-yaml": "^4.1.0"
   }
 }

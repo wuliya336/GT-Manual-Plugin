@@ -5,7 +5,7 @@ import Tools from '../model/sign&&verify.js'
 export class bbsVerification extends plugin {
   constructor (e) {
     super({
-      name: 'GT-Manual-Plugin',
+      name: 'GT插件',
       priority: -(9 ** 9),
       namespace: 'GT插件',
       handler: [
@@ -19,6 +19,7 @@ export class bbsVerification extends plugin {
         {
           dsc: '米游社手动签到',
           reg: '^#*(原神|星铁|米游社)?签到(.*)$',
+          priority: -33699,
           fnc: 'sign'
         },
         {

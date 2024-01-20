@@ -28,11 +28,11 @@ export const helpList = [{
   list: [{
     icon: 71,
     title: '#原神签到',
-    desc: '调用逍遥插件的签到功能，并返回原神签到地址'
+    desc: '返回原神签到地址'
   }, {
     icon: 71,
     title: '#星铁签到',
-    desc: '调用逍遥插件的签到功能，并返回原星铁签到地址'
+    desc: '返回原星铁签到地址'
   }, {
     icon: 71,
     title: '体力过验证码',
@@ -50,6 +50,10 @@ export const helpList = [{
     icon: 85,
     title: '#GT(强制)更新',
     desc: '更新GT插件'
+  }, {
+    icon: 85,
+    title: '#GT使用接口(1|2)',
+    desc: '切换第三方服务接口'
   }, {
     icon: 85,
     title: '#GT重连ws',
