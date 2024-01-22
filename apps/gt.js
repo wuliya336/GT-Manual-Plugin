@@ -19,7 +19,6 @@ export class bbsVerification extends plugin {
         {
           dsc: '米游社手动签到',
           reg: '^#*(原神|星铁|米游社)?签到(.*)$',
-          priority: -33699,
           fnc: 'sign'
         },
         {
