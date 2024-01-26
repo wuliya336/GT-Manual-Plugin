@@ -7,7 +7,7 @@
 # 前提
 * 本服务需要自行部署后端<br>
 * 本服务也提供后端地址,如下:<br>
-  接口1: 感谢由[@XMORANGE](https://gitee.com/XMORANGE)提供的服务器<br>
+  接口1: 感谢由[@XMORANGE](https://gitee.com/XMORANGE)提供的服务器(QQ内可直接访问),请尽量使用本接口<br>
   接口2: 来自[@XxxX](https://gitee.com/haanxuan)部署的服务<br>
 ---
 

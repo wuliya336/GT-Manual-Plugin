@@ -27,12 +27,8 @@ export const helpList = [{
   group: '功能',
   list: [{
     icon: 71,
-    title: '#原神签到',
-    desc: '返回原神签到地址'
-  }, {
-    icon: 71,
-    title: '#星铁签到',
-    desc: '返回原星铁签到地址'
+    title: '#签到',
+    desc: '返回原神星铁签到地址'
   }, {
     icon: 71,
     title: '体力过验证码',
