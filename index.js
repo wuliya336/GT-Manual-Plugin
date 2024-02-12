@@ -4,10 +4,10 @@ import chalk from 'chalk'
 
 let ret = []
 
-logger.info(chalk.rgb(188, 202, 224)(`---------=.=---------`))
-logger.info(chalk.rgb(188, 202, 224)(`GT插件${Version.version}载入成功^_^`))
-logger.info(chalk.rgb(188, 202, 224)(`作者-wuliya`))
-logger.info(chalk.rgb(188, 202, 224)(`---------------------`));
+logger.info(chalk.blue(`---------=.=---------`))
+logger.info(chalk.blue(`GT插件${Version.version}载入成功^_^`))
+logger.info(chalk.blue(`作者-wuliya`))
+logger.info(chalk.blue(`---------------------`));
 
 const files = fs
   .readdirSync('./plugins/GT-Manual-Plugin/apps')

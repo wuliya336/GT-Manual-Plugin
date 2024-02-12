@@ -48,7 +48,7 @@ export const helpList = [{
     desc: '更新GT插件'
   }, {
     icon: 85,
-    title: '#GT使用接口(1|2)',
+    title: '#GT使用接口(1|2|3)',
     desc: '切换第三方服务接口'
   }, {
     icon: 85,

@@ -9,6 +9,7 @@
 * 本服务也提供后端地址,如下:<br>
   接口1: 感谢由[@XMORANGE](https://gitee.com/XMORANGE)提供的服务器(QQ内可直接访问),请尽量使用本接口<br>
   接口2: 来自[@XxxX](https://gitee.com/haanxuan)部署的服务<br>
+  接口3: 来自[@Yummy-cookie](https://gitee.com/Yummy-cookie)部署的服务<br>
 ---
 
 ---
@@ -47,7 +48,7 @@ pnpm install --filter=GT-Manual-plugin
 ![帮助图](https://www.freeimg.cn/i/2024/01/22/65ae4e891edb6.jpg)<br>
 
 ## 使用第三方接口
-对着机器人发送`#GT使用接口(1|2)`即可，目前仅有两个接口<br>
+对着机器人发送`#GT使用接口(1|2|3)`即可，目前仅有三个接口<br>
 接下来重启机器人生效<br>
 # 说明
 - 不支持[Yunzai-Bot](https://gitee.com/yoimiya-kokomi/Yunzai-Bot)<br>
