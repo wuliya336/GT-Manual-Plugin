@@ -29,7 +29,7 @@ export class bbsVerification extends plugin {
         },
         {
           dsc: '刷新米游社验证',
-          reg: '^#(GT|gt)刷新验证$',
+          reg: '^#(GT|gt)验证$',
           fnc: 'bbsVerify'
         }
       ]
@@ -38,7 +38,7 @@ export class bbsVerification extends plugin {
 
   async mysReqErrHandler (e, options, reject) {
     let { mysApi, type, data } = options
-    let retcodeError = [1034, 5003]
+    let retcodeError = [1034, 5003, 10035]
     let cfg = Tools.Cfg
 
     if (
@@ -91,11 +91,19 @@ export class bbsVerification extends plugin {
     let msg = e.msg.replace(/＃|#|原神|星铁|米游社|签到/g, '')
     e.user_id = e.at || (msg && Number(msg)) || e.user_id
     let key = md5(e.user_id)
-    if (!Tools.ws) {
-      Tools.connectWebSocket()
-      await new Promise((resolve) => setTimeout(resolve, 1000))
-      if (!Tools.ws) return false
-    }
+	if (!Tools.ws) {
+	 Tools.connectWebSocket();
+	  await new Promise((resolve) => {
+	    Tools.ws.onopen = () => {
+	      console.log('连接成功');
+	      resolve();
+	    };
+	  });	
+	  if (!Tools.ws) {
+	    console.log('连接失败');
+	    return false;
+	  }
+	}
     this.mysUsers = this.mysUsers || {}
     Tools.mysUsers = this.mysUsers
     Tools.MysUser = e.runtime.MysUser
@@ -107,7 +115,7 @@ export class bbsVerification extends plugin {
     this.mysUsers[key] = user.mysUsers
     let payload = this.getUidsData(key, e.user_id)
     let { link } = await Tools.socketSend('createUser', payload, key)
-    if (link) await e.reply(`签到地址: ${link}`)
+    if (link) await e.reply(`米游社签到\n${link}`, true, { recallMsg: 30 })
   }
 
   getUidsData (key, user_id) {

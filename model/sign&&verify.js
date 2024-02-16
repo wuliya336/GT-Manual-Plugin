@@ -97,7 +97,7 @@ class Tools {
     res = await res.json()
     if (!res.data) return false
 
-    await e.reply(`请打开地址并完成验证\n${res.data.link}`, true)
+    await e.reply(`米游社验证码\n${res.data.link}`, true, { recallMsg: 30 })
 
     for (let i = 0; i < 80; i++) {
       let validate = await fetch(res.data.result)
