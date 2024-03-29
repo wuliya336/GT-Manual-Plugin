@@ -1,6 +1,7 @@
 # modules file
 node_modules/*
 pnpm-lock.yaml
+.history
 
 # Build and Release Folders
 bin-debug/

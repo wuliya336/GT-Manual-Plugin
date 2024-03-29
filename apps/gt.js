@@ -90,7 +90,7 @@ export class bbsVerification extends plugin {
   async sign (e) {
     let msg = e.msg.replace(/＃|#|原神|星铁|米游社|签到/g, '')
     e.user_id = e.at || (msg && Number(msg)) || e.user_id
-    let key = md5(e.user_id)
+    let key = md5(JSON.stringify(e.user_id))
 	if (!Tools.ws) {
 	 Tools.connectWebSocket();
 	  await new Promise((resolve) => {
