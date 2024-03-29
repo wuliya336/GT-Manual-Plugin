@@ -69,8 +69,3 @@ pnpm install --filter=GT-Manual-plugin
 * [Yunzai-V3](https://github.com/yoimiya-kokomi/Yunzai-Bot) ：Yunzai V3 - 喵喵维护版（使用 icqq）
 * [Yunzai-V3](https://gitee.com/Le-niao/Yunzai-Bot) ：Yunzai V3 - 乐神原版（使用 oicq）
 * [米游社接口服务](https://gitee.com/QQ1146638442/GT-Manual) ：米游社手动验证接口服务
-
-# 捐赠
-* 请我喝杯咖啡吧
-![支付宝](https://www.freeimg.cn/i/2024/01/13/65a22b52b8fd3.jpg)<br>
-![微信](https://www.freeimg.cn/i/2024/01/13/65a22b531903d.png)<br>
