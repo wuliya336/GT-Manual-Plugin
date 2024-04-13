@@ -21,6 +21,10 @@ export class api extends plugin {
           reg: /^#*(GT|gt)使用接口3$/,
           fnc: "api3",
         },
+         {
+          reg: /^#*(GT|gt)使用接口4$/,
+          fnc: "api4",
+        },
       ],
     });
 
@@ -53,5 +57,14 @@ export class api extends plugin {
     config.signAddr = "ws://gt.yunzai.icu/my";
     fs.writeFileSync(this.configPath, yaml.dump(config));
     await this.reply("已将GT接口替换为接口2,请重启云崽后生效", true);
+  }
+
+  async api4() {
+    if (!this.e.isMaster) return false;
+    let config = yaml.load(fs.readFileSync(this.configPath, "utf8"));
+    config.verifyAddr = "https://renranwrong.top/GTest/register?key=114514";
+    config.signAddr = "wss://renranwrong.top/mysSign?key=114514";
+    fs.writeFileSync(this.configPath, yaml.dump(config));
+    await this.reply("已将GT接口替换为接口4,请重启云崽后生效", true);
   }
 }
